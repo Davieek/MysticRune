@@ -41,19 +41,51 @@ public class MysticRuneAPI {
     }
 
     public static void logInfo(String message) {
-        if (message.equalsIgnoreCase(" ")) {
-            Bukkit.getConsoleSender().sendMessage(fixColor(message));
+        if (message.toLowerCase().startsWith("warn:")) {
+            Bukkit.getConsoleSender().sendMessage(fixColor("&6❗ &4WARNING &8| " + message.replaceAll("warn:", "")));
+            return;
+        }
+        if (message.toLowerCase().startsWith("error:")) {
+            Bukkit.getConsoleSender().sendMessage(fixColor("&6❌ &4ERROR &8| " + message.replaceAll("error:", "")));
+            return;
+        }
+        if (message.startsWith("none:")) {
+            Bukkit.getConsoleSender().sendMessage(fixColor(message.replaceAll("none:", "")));
             return;
         }
         Bukkit.getConsoleSender().sendMessage(fixColor("&8[&6ϟ&8] "+message));
     }
 
     public static void playerSendMessage(Player player, String message) {
-        var config = ConfigManager.config;
+        var config = ConfigManager.getConfig();
         var prefix = config.getString("prefix");
 
         player.sendMessage(fixColor(prefix + " " + message));
 
     }
+
+    public static void enableMessage() {
+        logInfo("none:");
+        logInfo("none:");
+        logInfo("none:&6     #######               #######");
+        logInfo("none:&6     ########             ########");
+        logInfo("none:&6     #########           #########");
+        logInfo("none:&6     ##########         ##########");
+        logInfo("none:&6     ###########       ###########");
+        logInfo("none:&6     ############     ############");
+        logInfo("none:&6     ###### ######   ###### ######        &eMystic Rune");
+        logInfo("none:&6     ######  ###### ######  ######");
+        logInfo("none:&6     ######   ###########   ######           &eWELCOME!");
+        logInfo("none:&6     ######     #######     ######     &ePlugin Version: 1.1");
+        logInfo("none:&6     ######                 ######       &eAuthor: _Ninjak");
+        logInfo("none:&6     ######                 ######");
+        logInfo("none:&6     ######                 ######");
+        logInfo("none:&6     ######                 ######");
+        logInfo("none:&6     ######                 ######");
+        logInfo("none:");
+        logInfo("none:");
+
+    }
+
 
 }

@@ -3,3 +3,9 @@
 #  Author: _Ninjak    #
 #   version: 1.0      #
 #@@@=====-----=====@@@#
+
+
+
+disablePlugin: true
+prefix: "&8[&d"
+language: EN

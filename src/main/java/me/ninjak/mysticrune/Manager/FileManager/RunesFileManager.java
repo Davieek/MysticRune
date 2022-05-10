@@ -44,7 +44,7 @@ public class RunesFileManager {
         }
 
         runeConfig = YamlConfiguration.loadConfiguration(runeFile);
-        MysticRuneAPI.logInfo(" ");
+        MysticRuneAPI.logInfo("none:");
     }
 
     public static void saveConfig() {

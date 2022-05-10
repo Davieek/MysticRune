@@ -9,19 +9,20 @@ public final class MysticRune extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        var config = ConfigManager.config;
-        var disablePlugin = config.getBoolean("");
+        var disablePlugin = this.getConfig().getBoolean("disablePlugin");
 
-        if (!disablePlugin) {
-            MysticRuneAPI.logInfo("&cPLUGIN DISABLE");
-            MysticRuneAPI.logInfo("&if you want to enable the plugin, go to the config.yml file and change the value in disablePlugin");
+        MysticRuneAPI.enableMessage();
+
+
+        if (disablePlugin == true) {
+            MysticRuneAPI.logInfo("warn:&cPLUGIN DISABLE");
+            MysticRuneAPI.logInfo("warn:&cif you want to enable the plugin, go to the config.yml file and change the value in disablePlugin");
             this.getPluginLoader().disablePlugin(this);
             return;
         }
 
-
         MysticRuneAPI.logInfo("&eStarting plugin loading...");
-        MysticRuneAPI.logInfo(" ");
+        MysticRuneAPI.logInfo("none:");
         var startingTime = System.currentTimeMillis();
         MysticRuneAPI.logInfo("&eLoading config file...");
         ConfigManager.configSetup();
@@ -32,10 +33,13 @@ public final class MysticRune extends JavaPlugin {
         MysticRuneAPI.logInfo(String.format("&aSuccess load plugin in &6%s&a seconds",
                 (System.currentTimeMillis() - startingTime) / 1000d));
 
+
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+
     }
+
+
 }

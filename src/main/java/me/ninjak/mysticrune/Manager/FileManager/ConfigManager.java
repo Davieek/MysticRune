@@ -16,8 +16,8 @@ import java.io.IOException;
 public class ConfigManager {
     private static MysticRune main = MysticRune.getPlugin(MysticRune.class);
 
-    public static FileConfiguration config;
-    public static File configFile;
+    private static FileConfiguration config;
+    private static File configFile;
 
 
     public static void configSetup() {
@@ -48,7 +48,7 @@ public class ConfigManager {
 
 
         config = YamlConfiguration.loadConfiguration(configFile);
-        MysticRuneAPI.logInfo(" ");
+        MysticRuneAPI.logInfo("none:");
     }
 
     public static void saveConfig() {
@@ -57,5 +57,11 @@ public class ConfigManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static File getConfigFile() {
+        return configFile;
+    }
+    public static FileConfiguration getConfig() {
+        return config;
     }
 }
