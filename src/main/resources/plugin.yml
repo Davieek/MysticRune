@@ -1,0 +1,6 @@
+name: MysticRune
+version: '${project.version}'
+main: me.ninjak.mysticrune.MysticRune
+api-version: 1.18
+authors: [ _Ninjak ]
+description: add Rune on minecraft server
