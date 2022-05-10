@@ -1,0 +1,71 @@
+#@@@=====-----=====@@@#
+#    MysticRune       #
+#  Author: _Ninjak    #
+#   version: 1.0      #
+#@@@=====-----=====@@@#
+
+# all runes list
+# if you creating a new rune please add rune name.
+runesList:
+  - "smelting"  #  <-------- line 14 rune name
+#  - "new rune name"
+Runes:
+  # Sample rune
+  smelting:  # <---------- line 10 rune name
+    # visit https://minecraft-heads.com and copy vaule code
+    headVaule: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODMwMWFhODZjYWZkNGIyZDczMmE5YjQ4OTRjZmNmYzY1ZWRjODI4ZTg1NzFiNDVkYmYwYTNiYTk2NTc1Y2NjZiJ9fX0="
+    # rune name
+    name: "&c◆ Smelting"
+    # add minecraft effect on rune
+    # if effect = none this disable effect a rune
+    effect: "none"
+    # add custom effect on rune
+    # if customEffect = none this disable effect a rune
+    # all custom effect: noFallDamage, AutoSmelting
+    customEffect: "AutoSmelting"
+    # rune for specific item
+    # sword, pickaxe, axe,
+    runeOnItem: "pickaxe"
+    # cost in shop
+    # shop for command /runeshop
+    buyCost: 30
+    # rune rarity
+    # all rune rarity: common, uncommon, rare, epic, legendary, mythic, special
+    runeRarity: "RARE"
+    # player level
+    # if level is 0 this disable a player minimum level a specific rune
+    playerLevel: 3
+    # add role on rune
+    lore:
+      #      - "&8Rune on: pickaxe"
+      - ""
+      - "&7All the ores you mine "
+      - "&7are automatically fired."
+      - ""
+      - "&7The smelting rune can only be attached to the pickaxe"
+      - ""
+      #      - "&8Smelting"
+      - "&9&lRARE"
+    # crafting rune
+    # if any slots is null this disable custom crafting
+    crafting:
+      - "" # slot 1
+      - "" # slot 2
+      - "" # slot 3
+      - "" # slot 4
+      - "" # slot 5
+      - "" # slot 6
+      - "" # slot 7
+      - "" # slot 8
+      - "" # slot 9
+
+    # chance drop a mobs
+    ChanceDrop: 0
+    # rune on specific mob drop
+    MobDrop:
+      zombie: true
+      slime: true
+      skeleton: true
+      magmacream: true
+      spider: true
+      creeper: true
