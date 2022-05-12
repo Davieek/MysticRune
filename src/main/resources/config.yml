@@ -9,3 +9,4 @@
 disablePlugin: false
 prefix: "&8[&d"
 language: EN
+PlayerLeveling: false

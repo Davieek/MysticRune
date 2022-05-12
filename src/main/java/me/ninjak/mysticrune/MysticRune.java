@@ -1,6 +1,9 @@
 package me.ninjak.mysticrune;
 
 import me.ninjak.mysticrune.API.MysticRuneAPI;
+import me.ninjak.mysticrune.Commands.GiveRuneCommand;
+import me.ninjak.mysticrune.Events.BlockBreakListener;
+import me.ninjak.mysticrune.Events.BlockPlaceListener;
 import me.ninjak.mysticrune.Manager.FileManager.ConfigManager;
 import me.ninjak.mysticrune.Manager.FileManager.LanguageManager;
 import me.ninjak.mysticrune.Manager.FileManager.RunesFileManager;
@@ -36,6 +39,10 @@ public final class MysticRune extends JavaPlugin {
         LanguageManager.saveConfig();
         MysticRuneAPI.logInfo(String.format("&aSuccess load plugin in &6%s&a seconds",
                 (System.currentTimeMillis() - startingTime) / 1000d));
+
+        getCommand("test").setExecutor(new GiveRuneCommand());
+        getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
+        getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
 
 
     }

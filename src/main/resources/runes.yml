@@ -37,15 +37,10 @@ Runes:
     playerLevel: 3
     # add role on rune
     lore:
-      #      - "&8Rune on: pickaxe"
-      - ""
       - "&7All the ores you mine "
       - "&7are automatically fired."
       - ""
       - "&7The smelting rune can only be attached to the pickaxe"
-      - ""
-      #      - "&8Smelting"
-      - "&9&lRARE"
     # crafting rune
     # if any slots is null this disable custom crafting
     crafting:
