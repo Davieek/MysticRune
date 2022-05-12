@@ -2,6 +2,7 @@ package me.ninjak.mysticrune;
 
 import me.ninjak.mysticrune.API.MysticRuneAPI;
 import me.ninjak.mysticrune.Manager.FileManager.ConfigManager;
+import me.ninjak.mysticrune.Manager.FileManager.LanguageManager;
 import me.ninjak.mysticrune.Manager.FileManager.RunesFileManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -30,6 +31,9 @@ public final class MysticRune extends JavaPlugin {
         MysticRuneAPI.logInfo("&eLoading runes file...");
         RunesFileManager.runeConfigSetup();
         RunesFileManager.saveConfig();
+        MysticRuneAPI.logInfo("&eLoading language file...");
+        LanguageManager.setup();
+        LanguageManager.saveConfig();
         MysticRuneAPI.logInfo(String.format("&aSuccess load plugin in &6%s&a seconds",
                 (System.currentTimeMillis() - startingTime) / 1000d));
 

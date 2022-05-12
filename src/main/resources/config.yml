@@ -6,6 +6,6 @@
 
 
 
-disablePlugin: true
+disablePlugin: false
 prefix: "&8[&d"
 language: EN

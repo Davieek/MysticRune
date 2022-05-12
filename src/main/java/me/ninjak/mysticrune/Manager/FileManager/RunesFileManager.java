@@ -16,8 +16,8 @@ import java.io.IOException;
 public class RunesFileManager {
     private static MysticRune main = MysticRune.getPlugin(MysticRune.class);
 
-    public static FileConfiguration runeConfig;
-    public static File runeFile;
+    private static FileConfiguration runeConfig;
+    private static File runeFile;
 
 
     public static void runeConfigSetup() {
@@ -53,5 +53,12 @@ public class RunesFileManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static File getRuneFile() {
+        return runeFile;
+    }
+    public static FileConfiguration getRuneConfig() {
+        return runeConfig;
     }
 }

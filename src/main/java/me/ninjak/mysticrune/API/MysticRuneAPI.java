@@ -42,11 +42,11 @@ public class MysticRuneAPI {
 
     public static void logInfo(String message) {
         if (message.toLowerCase().startsWith("warn:")) {
-            Bukkit.getConsoleSender().sendMessage(fixColor("&6❗ &4WARNING &8| " + message.replaceAll("warn:", "")));
+            Bukkit.getConsoleSender().sendMessage(fixColor("&4WARNING &8| " + message.replaceAll("warn:", "")));
             return;
         }
         if (message.toLowerCase().startsWith("error:")) {
-            Bukkit.getConsoleSender().sendMessage(fixColor("&6❌ &4ERROR &8| " + message.replaceAll("error:", "")));
+            Bukkit.getConsoleSender().sendMessage(fixColor("&4ERROR &8| " + message.replaceAll("error:", "")));
             return;
         }
         if (message.startsWith("none:")) {
