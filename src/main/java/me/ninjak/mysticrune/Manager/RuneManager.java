@@ -38,6 +38,7 @@ public class RuneManager {
         ArrayList<String> lore = new ArrayList<>();
         lore.add(MysticRuneAPI.fixColor("&8MysticRune"));
         lore.add(MysticRuneAPI.fixColor("&r&5&m  &r&d&m &r       &r&d&m &r&5&m  "));
+        lore.add(MysticRuneAPI.fixColor("&8"+name));
 
         if (config.getString("language").equalsIgnoreCase("EN")) {
             lore.add(MysticRuneAPI.fixColor("&8Rune on: " + runeItem));
@@ -63,7 +64,6 @@ public class RuneManager {
         }
 
         lore.add(MysticRuneAPI.fixColor(""));
-        lore.add(MysticRuneAPI.fixColor("&8"+name));
 
         if (runeRarity.equalsIgnoreCase("common")) {
             lore.add(MysticRuneAPI.fixColor("&f&l" + runeRarity));

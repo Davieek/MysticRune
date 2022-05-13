@@ -53,7 +53,7 @@ public class MysticRuneAPI {
             Bukkit.getConsoleSender().sendMessage(fixColor(message.replaceAll("none:", "")));
             return;
         }
-        Bukkit.getConsoleSender().sendMessage(fixColor("&8[&dM&8] "+message));
+        Bukkit.getConsoleSender().sendMessage(fixColor("&8[&6M&8] "+message));
     }
 
     public static void playerSendMessage(Player player, String message) {
@@ -67,21 +67,21 @@ public class MysticRuneAPI {
     public static void enableMessage() {
         logInfo("none:");
         logInfo("none:");
-        logInfo("none:&d     #######               #######");
-        logInfo("none:&d     ########             ########");
-        logInfo("none:&d     #########           #########");
-        logInfo("none:&d     ##########         ##########");
-        logInfo("none:&d     ###########       ###########");
-        logInfo("none:&d     ############     ############");
-        logInfo("none:&d     ###### ######   ###### ######        &eMystic Rune");
-        logInfo("none:&d     ######  ###### ######  ######");
-        logInfo("none:&d     ######   ###########   ######           &eWELCOME!");
-        logInfo("none:&d     ######     #######     ######     &ePlugin Version: 1.1");
-        logInfo("none:&d     ######                 ######       &eAuthor: _Ninjak");
-        logInfo("none:&d     ######                 ######");
-        logInfo("none:&d     ######                 ######");
-        logInfo("none:&d     ######                 ######");
-        logInfo("none:&d     ######                 ######");
+        logInfo("none:&e     #######               #######");
+        logInfo("none:&e     ########             ########");
+        logInfo("none:&e     #########           #########");
+        logInfo("none:&e     ##########         ##########");
+        logInfo("none:&e     ###########       ###########");
+        logInfo("none:&e     ############     ############");
+        logInfo("none:&e     ###### ######   ###### ######        &eMystic Rune");
+        logInfo("none:&e     ######  ###### ######  ######");
+        logInfo("none:&e     ######   ###########   ######           &eWELCOME!");
+        logInfo("none:&e     ######     #######     ######     &ePlugin Version: 1.1");
+        logInfo("none:&e     ######                 ######       &eAuthor: _Ninjak");
+        logInfo("none:&e     ######                 ######");
+        logInfo("none:&e     ######                 ######");
+        logInfo("none:&e     ######                 ######");
+        logInfo("none:&e     ######                 ######");
         logInfo("none:");
         logInfo("none:");
 
