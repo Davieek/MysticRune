@@ -29,7 +29,6 @@ public class RuneManager {
         var runeHeadValue = runesConfig.getString("Runes." + name + ".headValue");
         var runeRarity = runesConfig.getString("Runes." + name + ".runeRarity");
         var runeItem = runesConfig.getString("Runes." + name + ".runeOnItem");
-        var runePlayerLevel = runesConfig.getString("Runes." + name + ".playerLevel");
 
         assert runeHeadValue != null;
 
@@ -43,16 +42,17 @@ public class RuneManager {
         if (config.getString("language").equalsIgnoreCase("EN")) {
             lore.add(MysticRuneAPI.fixColor("&8Rune on: " + runeItem));
 
-            if (config.getBoolean("PlayerLeveling") == true) {
-                lore.add(MysticRuneAPI.fixColor("&8Player level: " + runePlayerLevel));
-            }
         }
 
         if (config.getString("language").equalsIgnoreCase("PL")) {
-            lore.add(MysticRuneAPI.fixColor("&8Runa na: " + runeItem));
-
-            if (config.getBoolean("PlayerLeveling") == true) {
-                lore.add(MysticRuneAPI.fixColor("&8level gracza: " + runePlayerLevel));
+            if (runeItem.equalsIgnoreCase("pickaxe")) {
+                lore.add(MysticRuneAPI.fixColor("&8Runa na: kilof"));
+            }
+            if (runeItem.equalsIgnoreCase("axe")) {
+                lore.add(MysticRuneAPI.fixColor("&8Runa na: siekiera"));
+            }
+            if (runeItem.equalsIgnoreCase("sword")) {
+                lore.add(MysticRuneAPI.fixColor("&8Runa na: miecz"));
             }
         }
 

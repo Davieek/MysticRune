@@ -22,6 +22,14 @@ public class BlockPlaceListener implements Listener {
     public void onBlockPlace(BlockPlaceEvent event) {
         var player = event.getPlayer();
 
+        if (player.getInventory().getItemInMainHand() == null) {
+            return;
+        }
+
+        if (player.getInventory().getItemInMainHand().getItemMeta().getLore() == null) {
+            return;
+        }
+
         var runeName = player.getInventory().getItemInMainHand().getItemMeta().getLore().get(0);
 
         if (runeName.equalsIgnoreCase(MysticRuneAPI.fixColor("&8MysticRune"))) {

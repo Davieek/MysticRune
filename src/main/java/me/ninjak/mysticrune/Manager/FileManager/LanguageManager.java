@@ -34,6 +34,9 @@ public class LanguageManager {
         var console = Bukkit.getConsoleSender();
 
         languageFilePL = new File(main.getDataFolder() + "/Language/language_PL.yml");
+        if (languageFilePL.exists()) {
+            MysticRuneAPI.logInfo("&aSuccess load (PL) language file!");
+        }
 
         if (!languageFilePL.exists()) {
             var startCreatingTime = System.currentTimeMillis();
@@ -43,13 +46,14 @@ public class LanguageManager {
                     (System.currentTimeMillis() - startCreatingTime) / 1000d));
         }
 
-        if (languageFilePL.exists()) {
-            MysticRuneAPI.logInfo("&aSuccess load (PL) language file!");
-        }
 
         languagePL = YamlConfiguration.loadConfiguration(languageFilePL);
 
         languageFileEN = new File(main.getDataFolder() + "/Language/language_EN.yml");
+
+        if (languageFileEN.exists()) {
+            MysticRuneAPI.logInfo("&aSuccess load (PL) language file!");
+        }
 
         if (!languageFileEN.exists()) {
             var startCreatingTime = System.currentTimeMillis();
@@ -59,9 +63,6 @@ public class LanguageManager {
                     (System.currentTimeMillis() - startCreatingTime) / 1000d));
         }
 
-        if (languageFileEN.exists()) {
-            MysticRuneAPI.logInfo("&aSuccess load (PL) language file!");
-        }
         languageEN = YamlConfiguration.loadConfiguration(languageFileEN);
 
         lanFile = new File(main.getDataFolder() + "/language/language_"+language2+".yml");
@@ -69,7 +70,7 @@ public class LanguageManager {
 
         if (!lanFile.exists()) {
             var config = ConfigManager.getConfig();
-            config.set("config.Language", "EN");
+            config.set("language", "EN");
             ConfigManager.saveConfig();
             YamlConfiguration.loadConfiguration(lanFile);
             MysticRuneAPI.logInfo("error:&clanguage file " + lanFile.getName() + " do not exist");

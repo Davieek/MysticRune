@@ -18,8 +18,7 @@ public class BlockBreakListener implements Listener {
 
         var runeConfig = RunesFileManager.getRuneConfig();
 
-        var runeName = player.getInventory().getItemInMainHand().getItemMeta().getLore().get(9);
-        player.sendMessage(runeName);
+
 
     }
 }

@@ -7,6 +7,5 @@
 
 
 disablePlugin: false
-prefix: "&8[&d"
+prefix: "&8[&dM&8] "
 language: EN
-PlayerLeveling: false
