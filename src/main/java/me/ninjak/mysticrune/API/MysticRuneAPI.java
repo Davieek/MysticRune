@@ -28,6 +28,14 @@ public class MysticRuneAPI {
         );
     }
 
+    public static ItemStack createHeadonInventory(String value, Integer integer) {
+        var skull = new ItemStack(Material.PLAYER_HEAD, integer);
+        UUID hashAsId = new UUID(value.hashCode(), value.hashCode());
+        return Bukkit.getUnsafe().modifyItemStack(skull,
+                "{SkullOwner:{Id:\"" + hashAsId + "\",Properties:{textures:[{Value:\"" + value + "\"}]}}}"
+        );
+    }
+
     public static void createRune(String name, ArrayList<String> loreList, String vaule ) {
         var rune = createHead(vaule);
         var runeMeta = rune.getItemMeta();

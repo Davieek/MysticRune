@@ -1,6 +1,5 @@
 package me.ninjak.mysticrune.Events;
 
-import me.ninjak.mysticrune.API.MysticRuneAPI;
 import me.ninjak.mysticrune.Inventory.PedestalInventory;
 import me.ninjak.mysticrune.Manager.FileManager.ConfigManager;
 import org.bukkit.Material;

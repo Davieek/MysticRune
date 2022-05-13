@@ -32,9 +32,6 @@ Runes:
     # rune rarity
     # all rune rarity: common, uncommon, rare, epic, legendary, mythic, special
     runeRarity: "RARE"
-    # player level
-    # if level is 0 this disable a player minimum level a specific rune
-    playerLevel: 3
     # add role on rune
     lore:
       - "&7All the ores you mine "
@@ -42,17 +39,12 @@ Runes:
       - ""
       - "&7The smelting rune can only be attached to the pickaxe"
     # crafting rune
-    # if any slots is null this disable custom crafting
+    # if any slots is 0 this disable custom crafting
     crafting:
-      - "" # slot 1
-      - "" # slot 2
-      - "" # slot 3
-      - "" # slot 4
-      - "" # slot 5
-      - "" # slot 6
-      - "" # slot 7
-      - "" # slot 8
-      - "" # slot 9
+      Recipe:
+        - 1, 2, 3
+        - 4, 5, 6
+        - 7, 8, 9
 
     # chance drop a mobs
     ChanceDrop: 0
