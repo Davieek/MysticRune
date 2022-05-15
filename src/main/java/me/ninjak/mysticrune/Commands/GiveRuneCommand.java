@@ -2,6 +2,7 @@ package me.ninjak.mysticrune.Commands;
 
 import me.ninjak.mysticrune.API.MysticRuneAPI;
 import me.ninjak.mysticrune.Inventory.PedestalInventory;
+import me.ninjak.mysticrune.Inventory.setupRuneInventory;
 import me.ninjak.mysticrune.Manager.FileManager.RunesFileManager;
 import me.ninjak.mysticrune.Manager.RuneManager;
 import org.bukkit.command.Command;
@@ -36,7 +37,7 @@ public class GiveRuneCommand implements CommandExecutor {
             }
 
             player.getInventory().addItem(RuneManager.getRune(args[0]));
-            PedestalInventory.openPedestal(player);
+            setupRuneInventory.selectRuneInventory(player);
 
         }
 

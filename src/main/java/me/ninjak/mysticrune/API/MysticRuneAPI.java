@@ -16,6 +16,7 @@ import java.util.UUID;
  * @date 5/10/2022
  */
 public class MysticRuneAPI {
+
     public static String fixColor(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
     }
