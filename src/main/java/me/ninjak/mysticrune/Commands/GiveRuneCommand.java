@@ -35,7 +35,7 @@ public class GiveRuneCommand implements CommandExecutor {
             if (!runeList.contains(args[0])) {
                 player.sendMessage("nie ma takiej runy");
                 return true;
-                
+
             }
 
             //player.getInventory().addItem(RuneManager.getRune(args[0]));
