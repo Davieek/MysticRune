@@ -6,6 +6,7 @@ import me.ninjak.mysticrune.Manager.FileManager.RunesFileManager;
 import me.ninjak.mysticrune.Manager.RuneManager;
 import me.ninjak.mysticrune.MysticRune;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -22,6 +23,8 @@ public class InventoryCloseListener implements Listener {
 
     private static ItemStack newItemOne;
     private static ItemStack newItemTwo;
+
+    private static FileConfiguration runeConfig = RunesFileManager.getRuneConfig();
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
@@ -42,13 +45,33 @@ public class InventoryCloseListener implements Listener {
             }
 
             if (itemOne != null && itemTwo == null) {
+                if (itemOne.getItemMeta().getLore() == null) {
+                    if(player.getInventory().firstEmpty() == -1){
+                        var world = player.getWorld();
+                        world.dropItemNaturally(player.getLocation(), itemOne);
+                        return;
+                    }
+                    player.getInventory().addItem(itemOne);
+                    return;
+                }
 
                 if (itemOne.getType() == Material.PLAYER_HEAD) {
                     var ItemOneLore = itemOne.getItemMeta().getLore().get(2);
-                    newItemOne = RuneManager.getRune(ItemOneLore.replaceAll(MysticRuneAPI.fixColor("&8"), ""));
+                    var runeName = ItemOneLore.replaceAll(MysticRuneAPI.fixColor("&8"), "");
+                    if (runeConfig.get("Runes." + runeName) == null) {
+                        return;
+                    }
+                    if(player.getInventory().firstEmpty() == -1){
+                        var world = player.getWorld();
+                        world.dropItemNaturally(player.getLocation(), RuneManager.getRune(runeName));
+                        return;
+                    }
+                    player.getInventory().addItem(RuneManager.getRune(runeName));
+                    return;
                 } else {
                     newItemOne = new ItemStack(itemOne.getType(), itemOne.getAmount());
                 }
+
 
                 newItemOne.setDurability(itemOne.getDurability());
                 var itemOneMeta = newItemOne.getItemMeta();
@@ -65,13 +88,31 @@ public class InventoryCloseListener implements Listener {
             }
 
             if (itemOne == null && itemTwo != null) {
-                if (itemTwo.getType() == Material.PLAYER_HEAD) {
-                    var ItemTwoLore = itemOne.getItemMeta().getLore().get(2);
-                    newItemTwo = RuneManager.getRune(ItemTwoLore.replaceAll(MysticRuneAPI.fixColor("&8"), ""));
-                } else {
-                    newItemOne = new ItemStack(itemOne.getType(), itemOne.getAmount());
+                if (itemTwo.getItemMeta().getLore() == null) {
+                    if(player.getInventory().firstEmpty() == -1){
+                        var world = player.getWorld();
+                        world.dropItemNaturally(player.getLocation(), itemTwo);
+                        return;
+                    }
+                    player.getInventory().addItem(itemTwo);
+                    return;
                 }
-
+                if (itemTwo.getType() == Material.PLAYER_HEAD) {
+                    var ItemTwoLore = itemTwo.getItemMeta().getLore().get(2);
+                    var runeName = ItemTwoLore.replaceAll(MysticRuneAPI.fixColor("&8"), "");
+                    if (runeConfig.get("Runes." + runeName) == null) {
+                        return;
+                    }
+                    if(player.getInventory().firstEmpty() == -1){
+                        var world = player.getWorld();
+                        world.dropItemNaturally(player.getLocation(), RuneManager.getRune(runeName));
+                        return;
+                    }
+                    player.getInventory().addItem(RuneManager.getRune(runeName));
+                    return;
+                } else {
+                    newItemTwo = new ItemStack(itemTwo.getType(), itemTwo.getAmount());
+                }
                 newItemTwo.setDurability(itemTwo.getDurability());
                 var itemTwoMeta = newItemTwo.getItemMeta();
                 itemTwoMeta.setDisplayName(MysticRuneAPI.fixColor(itemTwo.getItemMeta().getDisplayName()));
@@ -87,12 +128,54 @@ public class InventoryCloseListener implements Listener {
             }
 
             if (itemOne != null && itemTwo != null) {
+                if (itemOne.getItemMeta().getLore() == null) {
+
+                    if (itemTwo.getItemMeta().getLore() == null) {
+                        if(player.getInventory().firstEmpty() == -1){
+                            var world = player.getWorld();
+                            world.dropItemNaturally(player.getLocation(), itemOne);
+                            world.dropItemNaturally(player.getLocation(), itemTwo);
+                            return;
+                        }
+                        player.getInventory().addItem(itemOne);
+                        player.getInventory().addItem(itemTwo);
+                        return;
+                    }
+                    return;
+                }
                 if (itemOne.getType() == Material.PLAYER_HEAD) {
+
                     var ItemOneLore = itemOne.getItemMeta().getLore().get(2);
-                    newItemOne = RuneManager.getRune(ItemOneLore.replaceAll(MysticRuneAPI.fixColor("&8"), ""));
+                    var runeName = ItemOneLore.replaceAll(MysticRuneAPI.fixColor("&8"), "");
+                    if (runeConfig.get("Runes." + runeName) == null) {
+                        return;
+                    }
+
+                    if (itemTwo.getType() == Material.PLAYER_HEAD) {
+                        var ItemTwoLore = itemTwo.getItemMeta().getLore().get(2);
+                        var runeNameTwo = ItemTwoLore.replaceAll(MysticRuneAPI.fixColor("&8"), "");
+                        if (runeConfig.get("Runes." + runeNameTwo) == null) {
+                            return;
+                        }
+                        if(player.getInventory().firstEmpty() == -1){
+                            var world = player.getWorld();
+                            world.dropItemNaturally(player.getLocation(), RuneManager.getRune(runeName));
+                            world.dropItemNaturally(player.getLocation(), RuneManager.getRune(runeNameTwo));
+                            return;
+                        }
+
+                        player.getInventory().addItem(RuneManager.getRune(runeNameTwo));
+
+
+                        return;
+                    } else {
+                        newItemOne = new ItemStack(itemOne.getType(), itemOne.getAmount());
+                    }
+                    return;
                 } else {
                     newItemOne = new ItemStack(itemOne.getType(), itemOne.getAmount());
                 }
+
 
                 newItemOne.setDurability(itemOne.getDurability());
                 var itemOneMeta = newItemOne.getItemMeta();
@@ -106,12 +189,6 @@ public class InventoryCloseListener implements Listener {
                 newItemOne.setItemMeta(itemOneMeta);
                 player.getInventory().addItem(newItemOne);
 
-                if (itemTwo.getType() == Material.PLAYER_HEAD) {
-                    var ItemTwoLore = itemOne.getItemMeta().getLore().get(2);
-                    newItemTwo = RuneManager.getRune(ItemTwoLore.replaceAll(MysticRuneAPI.fixColor("&8"), ""));
-                } else {
-                    newItemOne = new ItemStack(itemOne.getType(), itemOne.getAmount());
-                }
 
                 newItemTwo.setDurability(itemTwo.getDurability());
                 var itemTwoMeta = newItemTwo.getItemMeta();

@@ -37,13 +37,9 @@ public class GiveRuneCommand implements CommandExecutor {
                 return true;
             }
 
-            player.getInventory().addItem(RuneManager.getRune(args[0]));
-            setupRuneInventory.selectRuneInventory(player);
-            var test = RunesFileManager.getRuneConfig().getConfigurationSection("Runes").getKeys(false);
+            //player.getInventory().addItem(RuneManager.getRune(args[0]));
+            PedestalInventory.openPedestal(player);
 
-            for (String test2 : test) {
-                MysticRuneAPI.logInfo(test2);
-            }
 
 
 

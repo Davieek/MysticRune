@@ -11,8 +11,6 @@ import me.ninjak.mysticrune.Manager.FileManager.LanguageManager;
 import me.ninjak.mysticrune.Manager.FileManager.RunesFileManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.List;
-
 public final class MysticRune extends JavaPlugin {
 
     @Override
@@ -63,6 +61,7 @@ public final class MysticRune extends JavaPlugin {
     public void onDisable() {
 
     }
+
 
 
 }
