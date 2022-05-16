@@ -10,6 +10,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.lang.module.Configuration;
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public class GiveRuneCommand implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("test")) {
             var player = (Player) sender;
             var runesConfig = RunesFileManager.getRuneConfig();
-            var runeList = (List<String>) runesConfig.getList("runesList");
+            var runeList = RunesFileManager.getRuneConfig().getConfigurationSection("Runes").getKeys(false);
 
             assert runeList != null;
             if (!runeList.contains(args[0])) {
@@ -38,6 +39,13 @@ public class GiveRuneCommand implements CommandExecutor {
 
             player.getInventory().addItem(RuneManager.getRune(args[0]));
             setupRuneInventory.selectRuneInventory(player);
+            var test = RunesFileManager.getRuneConfig().getConfigurationSection("Runes").getKeys(false);
+
+            for (String test2 : test) {
+                MysticRuneAPI.logInfo(test2);
+            }
+
+
 
         }
 

@@ -18,11 +18,7 @@ public class setupRuneInventory {
 
     private static String nextName;
 
-
-
     private static String selectRuneInvName;
-
-
 
     private static ItemStack createItem(Material material, String name, ArrayList <String> lores) {
         var item = new ItemStack(material);

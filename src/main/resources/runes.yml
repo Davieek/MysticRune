@@ -4,11 +4,6 @@
 #   version: 1.0      #
 #@@@=====-----=====@@@#
 
-# all runes list
-# if you creating a new rune please add rune name.
-runesList:
-  - "smelting"  #  <-------- line 14 rune name
-#  - "new rune name"
 Runes:
   # Sample rune
   smelting:  # <---------- line 10 rune name

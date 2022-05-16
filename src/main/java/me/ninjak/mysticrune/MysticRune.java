@@ -11,6 +11,8 @@ import me.ninjak.mysticrune.Manager.FileManager.LanguageManager;
 import me.ninjak.mysticrune.Manager.FileManager.RunesFileManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.List;
+
 public final class MysticRune extends JavaPlugin {
 
     @Override
@@ -39,6 +41,8 @@ public final class MysticRune extends JavaPlugin {
         MysticRuneAPI.logInfo("&eLoading language file...");
         LanguageManager.setup();
         LanguageManager.saveConfig();
+
+
 
         getCommand("test").setExecutor(new GiveRuneCommand());
         getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
